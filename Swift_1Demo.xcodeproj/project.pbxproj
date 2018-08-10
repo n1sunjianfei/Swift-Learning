@@ -3,12 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 45;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		C7420484211430590087EB4E /* ScrollViewViewController.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7420483211430590087EB4E /* ScrollViewViewController.txt */; };
 		C742048921143B6B0087EB4E /* JFTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742048821143B6B0087EB4E /* JFTabbarViewController.swift */; };
+		C7459B4B211D97D100FADE55 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7459B4A211D97D100FADE55 /* BaseNavigationController.swift */; };
+		C75868AB2117DDC700898DDA /* UIViewController+JFExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75868AA2117DDC700898DDA /* UIViewController+JFExtention.swift */; };
 		CE190E451F8DCB000039135A /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE190E441F8DCB000039135A /* UIBaseViewController.swift */; };
 		CE190E471F8DCB100039135A /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE190E461F8DCB100039135A /* OtherViewController.swift */; };
 		CE190E491F8E07040039135A /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE190E481F8E07040039135A /* TextFieldViewController.swift */; };
@@ -67,6 +69,8 @@
 /* Begin PBXFileReference section */
 		C7420483211430590087EB4E /* ScrollViewViewController.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ScrollViewViewController.txt; sourceTree = "<group>"; };
 		C742048821143B6B0087EB4E /* JFTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JFTabbarViewController.swift; sourceTree = "<group>"; };
+		C7459B4A211D97D100FADE55 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		C75868AA2117DDC700898DDA /* UIViewController+JFExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+JFExtention.swift"; sourceTree = "<group>"; };
 		CE190E441F8DCB000039135A /* UIBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
 		CE190E461F8DCB100039135A /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
 		CE190E481F8E07040039135A /* TextFieldViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +148,7 @@
 			children = (
 				CE190E441F8DCB000039135A /* UIBaseViewController.swift */,
 				CE190E461F8DCB100039135A /* OtherViewController.swift */,
-				C742048821143B6B0087EB4E /* JFTabbarViewController.swift */,
+				C7427A7A211BE4D300A6FF5C /* JFTabbarController */,
 			);
 			path = TabViewControllers;
 			sourceTree = "<group>";
@@ -172,6 +176,16 @@
 				CEB36E501CC9FBA500DABB2F /* LaunchScreen.storyboard */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		C7427A7A211BE4D300A6FF5C /* JFTabbarController */ = {
+			isa = PBXGroup;
+			children = (
+				C742048821143B6B0087EB4E /* JFTabbarViewController.swift */,
+				C7459B4A211D97D100FADE55 /* BaseNavigationController.swift */,
+				C75868AA2117DDC700898DDA /* UIViewController+JFExtention.swift */,
+			);
+			path = JFTabbarController;
 			sourceTree = "<group>";
 		};
 		CEB36E3B1CC9FBA500DABB2F = {
@@ -367,7 +381,7 @@
 				};
 			};
 			buildConfigurationList = CEB36E3F1CC9FBA500DABB2F /* Build configuration list for PBXProject "Swift_1Demo" */;
-			compatibilityVersion = "Xcode 8.0";
+			compatibilityVersion = "Xcode 3.1";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -448,8 +462,10 @@
 				CEB36E481CC9FBA500DABB2F /* AppDelegate.swift in Sources */,
 				CECD5A011F94400A00FE0959 /* JYDateUtil.swift in Sources */,
 				CE3E75941F90683300328B9C /* JYToast.swift in Sources */,
+				C7459B4B211D97D100FADE55 /* BaseNavigationController.swift in Sources */,
 				CECD5A031F94615000FE0959 /* JYWebviewCookie.swift in Sources */,
 				CED72C771F95A0470048AD79 /* JYNetworkManager.swift in Sources */,
+				C75868AB2117DDC700898DDA /* UIViewController+JFExtention.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

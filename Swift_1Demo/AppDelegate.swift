@@ -17,23 +17,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window = UIWindow(frame:UIScreen.main.bounds)
         let uibaseVC = UIBaseViewController()
-        uibaseVC.tabBarItem.title = "UI"
-        uibaseVC.tabBarItem.image = UIImage(named:"金融未选中")
-        uibaseVC.tabBarItem.selectedImage = UIImage(named: "金融选中")?.withRenderingMode(.alwaysOriginal)
-        uibaseVC.view.backgroundColor = UIColor.white
+        uibaseVC.jf_tabbarItem.title = "UI"
+        uibaseVC.jf_tabbarItem.image = UIImage(named:"金融未选中")
+        uibaseVC.jf_tabbarItem.selectedImage = UIImage(named: "金融选中")?.withRenderingMode(.alwaysOriginal)
+        uibaseVC.jf_tabbarItem.textColor = UIColor.gray
+        uibaseVC.jf_tabbarItem.textSelectedColor = UIColor.red
         
         let otherVC = OtherViewController()
-        otherVC.tabBarItem.title = "Other"
-        otherVC.tabBarItem.image = UIImage(named:"金融未选中")
-        otherVC.tabBarItem.selectedImage = UIImage(named: "金融选中")?.withRenderingMode(.alwaysOriginal)
-        otherVC.view.backgroundColor = UIColor.lightGray
-//        let rootTabbar = UITabBarController()
+        otherVC.jf_tabbarItem.title = "Other"
+        otherVC.jf_tabbarItem.image = UIImage(named:"金融未选中")
+        otherVC.jf_tabbarItem.selectedImage = UIImage(named: "金融选中")?.withRenderingMode(.alwaysOriginal)
+        otherVC.jf_tabbarItem.textColor = UIColor.gray
+        otherVC.jf_tabbarItem.textSelectedColor = UIColor.red
         
-////        rootTabbar.viewControllers = [UINavigationController.init(rootViewController: uibaseVC),UINavigationController.init(rootViewController: otherVC)]
-//    
+//        let rootTabbar = UITabBarController()
+//        rootTabbar.viewControllers = [BaseNavigationController.init(rootViewController: uibaseVC),BaseNavigationController.init(rootViewController: otherVC)]
 //        self.window!.rootViewController = rootTabbar
         let rootTabBar = JFTabbarViewController()
-        rootTabBar.viewControllers = [uibaseVC,otherVC]
+        rootTabBar.viewControllers = [BaseNavigationController.init(rootViewController: uibaseVC),BaseNavigationController.init(rootViewController: otherVC)]
         self.window!.rootViewController = rootTabBar;
 
         return true

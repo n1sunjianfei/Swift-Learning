@@ -12,7 +12,8 @@ class ScrollViewViewController: UIViewController ,UIScrollViewDelegate{
 
     override func viewDidLoad() {
         super.viewDidLoad();
-    print(HEIGHT,self.view.bounds.size.height,UIApplication.shared.keyWindow?.bounds.size.height ?? 1);
+   
+ print(HEIGHT,self.view.bounds.size.height,UIApplication.shared.keyWindow?.bounds.size.height ?? 1);
         
         self.view.backgroundColor = UIColor.white
         let scroll = UIScrollView(frame: self.view.bounds)

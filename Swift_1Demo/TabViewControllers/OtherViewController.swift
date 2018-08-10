@@ -24,13 +24,16 @@ class OtherViewController: UIViewController,UITableViewDataSource,UITableViewDel
         super.viewDidLoad()
         self.title = "线程+请求+弹窗"
         
-        self.tableView = UITableView(frame:self.view.bounds, style: UITableViewStyle.grouped)
-    
+        self.tableView = UITableView(frame:CGRect.zero, style: UITableViewStyle.grouped)
+        if (self.jf_tabBarController != nil) {
+            let frame = self.jf_tabBarController?.contentView.bounds
+            self.view.frame = frame!;
+        }
+        self.tableView.frame = self.view.bounds
 //        self.tableView.backgroundColor = UIColor.brown
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
-       
         
     }
  

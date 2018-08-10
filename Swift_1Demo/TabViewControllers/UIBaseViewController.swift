@@ -30,8 +30,16 @@ class UIBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.view.autoresizesSubviews = false
         print(JYUuid.getUuid())
         self.title = "UI基础"
-        self.tableView = UITableView(frame:self.view.bounds ,style: UITableViewStyle.grouped)
-        self.tableView.backgroundColor = UIColor.red
+        self.tableView = UITableView(frame:CGRect.zero ,style: UITableViewStyle.grouped)
+        if (self.jf_tabBarController != nil) {
+            let frame = self.jf_tabBarController?.contentView.bounds
+            self.view.frame = frame!;
+        }else{
+            print(self.tabBarController?.tabBar.bounds.size.height ?? "mei")
+        }
+       
+        self.tableView.frame = self.view.bounds
+//        self.tableView.backgroundColor = UIColor.red
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
@@ -39,7 +47,7 @@ class UIBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.tableView = UITableView(frame:self.view.bounds ,style: UITableViewStyle.grouped)
+       
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -124,6 +132,7 @@ class UIBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
             
              break
         case 5:
+//            self.jf_tabBarController?.tabBar.isHidden = true;
             self.navigationController?.pushViewController(ScrollViewViewController(), animated: true)
             break
         case 6:
@@ -216,12 +225,12 @@ class UIBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         imageView.center = self.view.center
         imageView.backgroundColor = UIColor.gray
         imageView.image = UIImage(named: "1")
-        imageView.animationImages = [
-        
-            UIImage(named: "1")!,
-            UIImage(named: "2")!,
-            UIImage(named: "3")!
-        ]
+        imageView.animationImages = ([
+            
+            UIImage(named: "1"),
+            UIImage(named: "2"),
+            UIImage(named: "3")
+            ] as! [UIImage])
         self.view.addSubview(imageView)
         imageView.animationDuration = 1
         imageView.startAnimating()
@@ -255,6 +264,4 @@ class UIBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         view.removeFromSuperview()
     }
     
-    
-
 }
