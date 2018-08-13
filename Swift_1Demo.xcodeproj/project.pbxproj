@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		C7420484211430590087EB4E /* ScrollViewViewController.txt in Resources */ = {isa = PBXBuildFile; fileRef = C7420483211430590087EB4E /* ScrollViewViewController.txt */; };
 		C742048921143B6B0087EB4E /* JFTabbarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C742048821143B6B0087EB4E /* JFTabbarViewController.swift */; };
-		C7459B4B211D97D100FADE55 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7459B4A211D97D100FADE55 /* BaseNavigationController.swift */; };
+		C7459B4B211D97D100FADE55 /* UINavigationController+JFExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7459B4A211D97D100FADE55 /* UINavigationController+JFExtension.swift */; };
 		C75868AB2117DDC700898DDA /* UIViewController+JFExtention.swift in Sources */ = {isa = PBXBuildFile; fileRef = C75868AA2117DDC700898DDA /* UIViewController+JFExtention.swift */; };
 		CE190E451F8DCB000039135A /* UIBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE190E441F8DCB000039135A /* UIBaseViewController.swift */; };
 		CE190E471F8DCB100039135A /* OtherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE190E461F8DCB100039135A /* OtherViewController.swift */; };
@@ -69,7 +69,7 @@
 /* Begin PBXFileReference section */
 		C7420483211430590087EB4E /* ScrollViewViewController.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ScrollViewViewController.txt; sourceTree = "<group>"; };
 		C742048821143B6B0087EB4E /* JFTabbarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JFTabbarViewController.swift; sourceTree = "<group>"; };
-		C7459B4A211D97D100FADE55 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
+		C7459B4A211D97D100FADE55 /* UINavigationController+JFExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+JFExtension.swift"; sourceTree = "<group>"; };
 		C75868AA2117DDC700898DDA /* UIViewController+JFExtention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+JFExtention.swift"; sourceTree = "<group>"; };
 		CE190E441F8DCB000039135A /* UIBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIBaseViewController.swift; sourceTree = "<group>"; };
 		CE190E461F8DCB100039135A /* OtherViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OtherViewController.swift; sourceTree = "<group>"; };
@@ -182,7 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				C742048821143B6B0087EB4E /* JFTabbarViewController.swift */,
-				C7459B4A211D97D100FADE55 /* BaseNavigationController.swift */,
+				C7459B4A211D97D100FADE55 /* UINavigationController+JFExtension.swift */,
 				C75868AA2117DDC700898DDA /* UIViewController+JFExtention.swift */,
 			);
 			path = JFTabbarController;
@@ -355,7 +355,7 @@
 		CEB36E3C1CC9FBA500DABB2F /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = sjf;
 				TargetAttributes = {
 					CEB36E431CC9FBA500DABB2F = {
@@ -462,7 +462,7 @@
 				CEB36E481CC9FBA500DABB2F /* AppDelegate.swift in Sources */,
 				CECD5A011F94400A00FE0959 /* JYDateUtil.swift in Sources */,
 				CE3E75941F90683300328B9C /* JYToast.swift in Sources */,
-				C7459B4B211D97D100FADE55 /* BaseNavigationController.swift in Sources */,
+				C7459B4B211D97D100FADE55 /* UINavigationController+JFExtension.swift in Sources */,
 				CECD5A031F94615000FE0959 /* JYWebviewCookie.swift in Sources */,
 				CED72C771F95A0470048AD79 /* JYNetworkManager.swift in Sources */,
 				C75868AB2117DDC700898DDA /* UIViewController+JFExtention.swift in Sources */,
@@ -532,12 +532,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -584,12 +586,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

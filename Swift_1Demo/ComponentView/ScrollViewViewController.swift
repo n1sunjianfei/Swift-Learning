@@ -15,9 +15,9 @@ class ScrollViewViewController: UIViewController ,UIScrollViewDelegate{
    
  print(HEIGHT,self.view.bounds.size.height,UIApplication.shared.keyWindow?.bounds.size.height ?? 1);
         
+        self.jf_hidesBottomBarWhenPushed = true
         self.view.backgroundColor = UIColor.white
         let scroll = UIScrollView(frame: self.view.bounds)
-//        scroll.isPagingEnabled = true
         scroll.isScrollEnabled = true
         scroll.showsVerticalScrollIndicator = true
 //        scroll.showsHorizontalScrollIndicator = true

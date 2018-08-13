@@ -12,9 +12,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
+        UIViewController.initializeMethod()
+        UINavigationController.initializeNavMethod()
         self.window = UIWindow(frame:UIScreen.main.bounds)
         let uibaseVC = UIBaseViewController()
         uibaseVC.jf_tabbarItem.title = "UI"
@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        rootTabbar.viewControllers = [BaseNavigationController.init(rootViewController: uibaseVC),BaseNavigationController.init(rootViewController: otherVC)]
 //        self.window!.rootViewController = rootTabbar
         let rootTabBar = JFTabbarViewController()
-        rootTabBar.viewControllers = [BaseNavigationController.init(rootViewController: uibaseVC),BaseNavigationController.init(rootViewController: otherVC)]
+        rootTabBar.viewControllers = [UINavigationController.init(rootViewController: uibaseVC),UINavigationController.init(rootViewController: otherVC)]
         self.window!.rootViewController = rootTabBar;
 
         return true

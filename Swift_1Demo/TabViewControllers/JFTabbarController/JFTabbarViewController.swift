@@ -34,6 +34,7 @@ class JFTabbarViewController: UIViewController {
             if vcOut is UINavigationController{
                 vc = (vcOut as! UINavigationController).topViewController!
             }
+//            vcOut.jf_tabBarController = self;
             vc.jf_tabBarController = self;
             let button = JFTabbarButton.init()
             button.center = CGPoint.init(x: itemWidth/2+CGFloat.init(index)*itemWidth, y: tabbarHeight/2)
