@@ -8,10 +8,20 @@
 
 import UIKit
 @UIApplicationMain
+
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    #if TEST  // 测试
+    
+    
+    #elseif APPSTORE   // 上线环境
+    
+    
+    #endif
+  
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UIViewController.initializeMethod()
         UINavigationController.initializeNavMethod()

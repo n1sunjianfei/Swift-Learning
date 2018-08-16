@@ -11,6 +11,13 @@ import UIKit
 let tabbarHeight:CGFloat = 49.0
 let tabbarHeight_iphoneX:CGFloat = 83.0
 
+enum TestEnum {
+    case TestEnum_01
+    case TestEnum_02
+    case TestEnum_03
+    case TestEnum_04
+}
+
 
 class JFTabbarViewController: UIViewController {
 

@@ -520,7 +520,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CEB36E6A1CC9FBA500DABB2F /* Debug */ = {
+		C745711C2125195F005CB727 /* Test_Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -559,6 +559,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					"TEST=1",
 				);
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -569,12 +570,60 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				Product_Bundle_Id = "sjf.Swift-1Demo.test";
+				Product_Display_Name = "-测";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = Debug;
+			name = Test_Debug;
 		};
-		CEB36E6B1CC9FBA500DABB2F /* Release */ = {
+		C745711D2125195F005CB727 /* Test_Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Swift_1Demo/Swift_1Demo.entitlements;
+				DEVELOPMENT_TEAM = 948PUQ64SN;
+				INFOPLIST_FILE = Swift_1Demo/Other/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sjf.Swift-1Demo.test";
+				PRODUCT_NAME = Swift_1Demo;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift_1Demo/Other/Swift_1Demo-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Test_Debug;
+		};
+		C745711E2125195F005CB727 /* Test_Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Swift_1DemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sjf.Swift-1DemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift_1Demo.app/Swift_1Demo";
+			};
+			name = Test_Debug;
+		};
+		C745711F2125195F005CB727 /* Test_Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Swift_1DemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sjf.Swift-1DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Swift_1Demo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Test_Debug;
+		};
+		C74571202125197B005CB727 /* Test_Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -608,6 +657,7 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "TEST=1";
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -616,13 +666,168 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				Product_Bundle_Id = "sjf.Swift-1Demo.test";
+				Product_Display_Name = "-测";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = Test_Release;
 		};
-		CEB36E6D1CC9FBA500DABB2F /* Debug */ = {
+		C74571212125197B005CB727 /* Test_Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = Swift_1Demo/Swift_1Demo.entitlements;
+				DEVELOPMENT_TEAM = 948PUQ64SN;
+				INFOPLIST_FILE = Swift_1Demo/Other/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sjf.Swift-1Demo.test";
+				PRODUCT_NAME = Swift_1Demo;
+				SWIFT_OBJC_BRIDGING_HEADER = "Swift_1Demo/Other/Swift_1Demo-Bridging-Header.h";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+			};
+			name = Test_Release;
+		};
+		C74571222125197B005CB727 /* Test_Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = Swift_1DemoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sjf.Swift-1DemoTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift_1Demo.app/Swift_1Demo";
+			};
+			name = Test_Release;
+		};
+		C74571232125197B005CB727 /* Test_Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = Swift_1DemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "sjf.Swift-1DemoUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
+				TEST_TARGET_NAME = Swift_1Demo;
+				USES_XCTRUNNER = YES;
+			};
+			name = Test_Release;
+		};
+		CEB36E6A1CC9FBA500DABB2F /* APPSTORE_Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					"APPSTORE=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				Product_Bundle_Id = "sjf.Swift-1Demo";
+				Product_Display_Name = "";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = APPSTORE_Debug;
+		};
+		CEB36E6B1CC9FBA500DABB2F /* APPSTORE_Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "APPSTORE=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				Product_Bundle_Id = "sjf.Swift-1Demo";
+				Product_Display_Name = "";
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = APPSTORE_Release;
+		};
+		CEB36E6D1CC9FBA500DABB2F /* APPSTORE_Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -632,15 +837,15 @@
 				INFOPLIST_FILE = Swift_1Demo/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "sjf.Swift-1Demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Swift_1Demo;
 				SWIFT_OBJC_BRIDGING_HEADER = "Swift_1Demo/Other/Swift_1Demo-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
-			name = Debug;
+			name = APPSTORE_Debug;
 		};
-		CEB36E6E1CC9FBA500DABB2F /* Release */ = {
+		CEB36E6E1CC9FBA500DABB2F /* APPSTORE_Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -650,14 +855,14 @@
 				INFOPLIST_FILE = Swift_1Demo/Other/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "sjf.Swift-1Demo";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Swift_1Demo;
 				SWIFT_OBJC_BRIDGING_HEADER = "Swift_1Demo/Other/Swift_1Demo-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 			};
-			name = Release;
+			name = APPSTORE_Release;
 		};
-		CEB36E701CC9FBA500DABB2F /* Debug */ = {
+		CEB36E701CC9FBA500DABB2F /* APPSTORE_Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -669,9 +874,9 @@
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift_1Demo.app/Swift_1Demo";
 			};
-			name = Debug;
+			name = APPSTORE_Debug;
 		};
-		CEB36E711CC9FBA500DABB2F /* Release */ = {
+		CEB36E711CC9FBA500DABB2F /* APPSTORE_Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -683,9 +888,9 @@
 				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Swift_1Demo.app/Swift_1Demo";
 			};
-			name = Release;
+			name = APPSTORE_Release;
 		};
-		CEB36E731CC9FBA500DABB2F /* Debug */ = {
+		CEB36E731CC9FBA500DABB2F /* APPSTORE_Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = Swift_1DemoUITests/Info.plist;
@@ -697,9 +902,9 @@
 				TEST_TARGET_NAME = Swift_1Demo;
 				USES_XCTRUNNER = YES;
 			};
-			name = Debug;
+			name = APPSTORE_Debug;
 		};
-		CEB36E741CC9FBA500DABB2F /* Release */ = {
+		CEB36E741CC9FBA500DABB2F /* APPSTORE_Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				INFOPLIST_FILE = Swift_1DemoUITests/Info.plist;
@@ -711,7 +916,7 @@
 				TEST_TARGET_NAME = Swift_1Demo;
 				USES_XCTRUNNER = YES;
 			};
-			name = Release;
+			name = APPSTORE_Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -719,38 +924,46 @@
 		CEB36E3F1CC9FBA500DABB2F /* Build configuration list for PBXProject "Swift_1Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CEB36E6A1CC9FBA500DABB2F /* Debug */,
-				CEB36E6B1CC9FBA500DABB2F /* Release */,
+				CEB36E6A1CC9FBA500DABB2F /* APPSTORE_Debug */,
+				C745711C2125195F005CB727 /* Test_Debug */,
+				CEB36E6B1CC9FBA500DABB2F /* APPSTORE_Release */,
+				C74571202125197B005CB727 /* Test_Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = APPSTORE_Release;
 		};
 		CEB36E6C1CC9FBA500DABB2F /* Build configuration list for PBXNativeTarget "Swift_1Demo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CEB36E6D1CC9FBA500DABB2F /* Debug */,
-				CEB36E6E1CC9FBA500DABB2F /* Release */,
+				CEB36E6D1CC9FBA500DABB2F /* APPSTORE_Debug */,
+				C745711D2125195F005CB727 /* Test_Debug */,
+				CEB36E6E1CC9FBA500DABB2F /* APPSTORE_Release */,
+				C74571212125197B005CB727 /* Test_Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = APPSTORE_Release;
 		};
 		CEB36E6F1CC9FBA500DABB2F /* Build configuration list for PBXNativeTarget "Swift_1DemoTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CEB36E701CC9FBA500DABB2F /* Debug */,
-				CEB36E711CC9FBA500DABB2F /* Release */,
+				CEB36E701CC9FBA500DABB2F /* APPSTORE_Debug */,
+				C745711E2125195F005CB727 /* Test_Debug */,
+				CEB36E711CC9FBA500DABB2F /* APPSTORE_Release */,
+				C74571222125197B005CB727 /* Test_Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = APPSTORE_Release;
 		};
 		CEB36E721CC9FBA500DABB2F /* Build configuration list for PBXNativeTarget "Swift_1DemoUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CEB36E731CC9FBA500DABB2F /* Debug */,
-				CEB36E741CC9FBA500DABB2F /* Release */,
+				CEB36E731CC9FBA500DABB2F /* APPSTORE_Debug */,
+				C745711F2125195F005CB727 /* Test_Debug */,
+				CEB36E741CC9FBA500DABB2F /* APPSTORE_Release */,
+				C74571232125197B005CB727 /* Test_Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = APPSTORE_Release;
 		};
 /* End XCConfigurationList section */
 	};
