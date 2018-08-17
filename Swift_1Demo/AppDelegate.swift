@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         otherVC.jf_tabbarItem.textSelectedColor = UIColor.red
         
 //        let rootTabbar = UITabBarController()
-//        rootTabbar.viewControllers = [BaseNavigationController.init(rootViewController: uibaseVC),BaseNavigationController.init(rootViewController: otherVC)]
+//        rootTabbar.viewControllers = [UINavigationController.init(rootViewController: uibaseVC),UINavigationController.init(rootViewController: otherVC)]
 //        self.window!.rootViewController = rootTabbar
         let rootTabBar = JFTabbarViewController()
         rootTabBar.viewControllers = [UINavigationController.init(rootViewController: uibaseVC),UINavigationController.init(rootViewController: otherVC)]

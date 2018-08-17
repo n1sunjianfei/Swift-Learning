@@ -12,7 +12,7 @@ let WIDTH = UIScreen.main.bounds.size.width
 
 let HEIGHT = UIScreen.main.bounds.size.height
 
-class UIBaseViewController: UIViewController,UITableViewDataSource,UITableViewDelegate,testProtocol{
+class UIBaseViewController: JFBaseViewController,UITableViewDataSource,UITableViewDelegate,testProtocol{
 
     var tableView: UITableView!
     
@@ -27,6 +27,7 @@ class UIBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.view.backgroundColor = UIColor.white
         self.view.autoresizesSubviews = false
         print(JYUuid.getUuid())
         self.title = "UI基础"
@@ -43,8 +44,22 @@ class UIBaseViewController: UIViewController,UITableViewDataSource,UITableViewDe
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.view.addSubview(self.tableView)
+        
+       
+        
     }
 
+    @objc override func orientationChanged(notification: Notification) {
+        super.orientationChanged(notification: notification)
+        let queue = DispatchQueue(label: "com.test.backtomain")
+        queue.async{
+            DispatchQueue.main.async {
+                self.tableView.frame = self.view.bounds
+            }
+        }
+
+    }
+   
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
        

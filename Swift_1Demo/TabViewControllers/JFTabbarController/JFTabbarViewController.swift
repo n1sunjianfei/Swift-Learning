@@ -19,8 +19,9 @@ enum TestEnum {
 }
 
 
-class JFTabbarViewController: UIViewController {
+class JFTabbarViewController: JFBaseViewController {
 
+    
     var viewControllers:[UIViewController]!
     var currentViewController:AnyObject?
     var contentView:UIView!
@@ -43,8 +44,7 @@ class JFTabbarViewController: UIViewController {
             }
 //            vcOut.jf_tabBarController = self;
             vc.jf_tabBarController = self;
-            let button = JFTabbarButton.init()
-            button.center = CGPoint.init(x: itemWidth/2+CGFloat.init(index)*itemWidth, y: tabbarHeight/2)
+            let button = JFTabbarButton.init(frame: CGRect.init(x: CGFloat.init(index)*itemWidth, y: 0, width: itemWidth, height: tabbarHeight))
             button.title = vc.jf_tabbarItem.title
             button.image = vc.jf_tabbarItem.image
             button.selectedImage = vc.jf_tabbarItem.selectedImage
@@ -61,11 +61,31 @@ class JFTabbarViewController: UIViewController {
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let view = self.childViewControllers[0].view
-        self.currentViewController = self.childViewControllers[0];
-        self.contentView.addSubview(view!)
-        self.currentViewController?.didMove(toParentViewController: self)
+        if self.currentViewController == nil {
+            self.currentViewController = self.childViewControllers[0];
+            self.addContentView()
+        }
     }
+    
+    @objc override func orientationChanged(notification: Notification) {
+        super.orientationChanged(notification: notification)
+        if self.currentViewController != nil {
+            //重新设置contentView的frame
+            self.addContentView()
+            let itemWidth = UIScreen.main.bounds.width/CGFloat.init(viewControllers.count)
+            //重新设置tabbar按钮frame
+            for button:UIView in self.tabBar.subviews{
+                if button .isKind(of: JFTabbarButton.self) {
+                    var frame = button.frame
+                    frame.size.width = itemWidth
+                    frame.origin.x = CGFloat.init(button.tag)*itemWidth
+                    button.frame = frame
+                    print(frame)
+                }
+            }
+        }
+    }
+    
     func setupBaseUI(){
         self.contentView = UIView.init()
         self.lineView = UIView.init()
@@ -107,26 +127,26 @@ class JFTabbarViewController: UIViewController {
             }
             
         }
+        self.currentViewController = self.childViewControllers[sender.tag];
+        self.addContentView()
         
 //        self.transition(from: self.currentViewController! as! UIViewController, to: self.viewControllers[sender.tag], duration: 0.1, options: UIViewAnimationOptions.preferredFramesPerSecond30, animations: {
 //
 //        }) { (finished:Bool) in
 //            if (finished){
-
-                let viewLast = self.currentViewController?.view
-                viewLast?.removeFromSuperview()
-                self.currentViewController = self.childViewControllers[sender.tag];
-                let view = self.childViewControllers[sender.tag].view
-                view?.frame = self.contentView.bounds
-                self.contentView.addSubview(view!)
-                self.contentView.sendSubview(toBack:view!)
-//            }
-//        }
-//        print(NSString.init(format: "click--%d", sender.tag))
+    }
+    func addContentView(){
+        self.contentView.subviews.forEach { (subview:UIView) in
+            subview.removeFromSuperview()
+        }
+        let view = self.currentViewController?.view
+        view?.frame = self.contentView.bounds
+        self.contentView.addSubview(view!)
+        
+        self.contentView.sendSubview(toBack:view!)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     //MARK: 相当于OC中的NSBinding
     func ConstraintDictionWithArray(nameArray:Array<UIView>,object:AnyObject) -> Dictionary<String,AnyObject> {
@@ -244,19 +264,33 @@ class JFTabbarButton: UIView {
             }
         }
     }
-    
-    init(){
-        super.init(frame:CGRect.init(x: 0, y: 0, width: tabbarHeight, height: tabbarHeight))
-        self.imageView = UIImageView.init(frame: CGRect.init(x: tabbarHeight/2-10, y: 10, width: 20, height: 20))
+    override init(frame: CGRect) {
+        super.init(frame:frame)
+        self.imageView = UIImageView.init()
         self.imageView?.contentMode = UIViewContentMode.scaleAspectFit
-        self.titleLabel = UILabel.init(frame: CGRect.init(x: 0, y: 35, width: tabbarHeight, height: 14))
+        self.titleLabel = UILabel.init()
         self.titleLabel?.font = UIFont.systemFont(ofSize: 12)
         self.titleLabel?.textAlignment = NSTextAlignment.center
         self.button = UIButton.init(type: UIButtonType.custom)
-        self.button?.frame = CGRect.init(x: 0, y: 0, width: tabbarHeight, height: tabbarHeight)
         self.addSubview(self.titleLabel!)
         self.addSubview(self.imageView!)
         self.addSubview(self.button!)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        let height = self.bounds.size.height
+        let width = self.bounds.size.width
+
+        self.imageView?.frame = CGRect.init(x: height/2-10, y: 10, width: 20, height: 20)
+        var imageViewCenter = self.imageView?.center
+        imageViewCenter?.x = width/2
+        self.imageView?.center = imageViewCenter!
+        self.titleLabel?.frame = CGRect.init(x: 0, y: 35, width: height, height: 14)
+        var titleLabelCenter = self.titleLabel?.center
+        titleLabelCenter?.x = width/2
+        self.titleLabel?.center = titleLabelCenter!
+        self.button?.frame = CGRect.init(x: 0, y: 0, width: width, height: height)
     }
     //重写父类属性get，set
     override var tag:Int{

@@ -18,6 +18,9 @@ class TextFieldViewController: UIViewController ,UITextFieldDelegate{
     //delegate step 2:
     var delegate:testProtocol?
 
+    func logJFFF(string:String?){
+        print(string ?? "")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white

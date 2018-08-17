@@ -8,14 +8,14 @@
 
 import UIKit
 
-class OtherViewController: UIViewController,UITableViewDataSource,UITableViewDelegate{
+class OtherViewController: JFBaseViewController,UITableViewDataSource,UITableViewDelegate{
     
     var tableView: UITableView!
     
     //lazy
     lazy var datasource:NSArray = {
         
-        var tmpdatasource = NSArray(objects: ["title":"dispatch使用","content":["sync -- 同步","async -- 异步","delay -- 延迟执行三秒","main -- 主线程","global -- 全局并发队列"]],["title":"网络请求","content":["GET -- 请求","POST -- 请求","下载图片"]],["title":"自定义组件","content":["toast","。。。"]])
+        var tmpdatasource = NSArray(objects: ["title":"dispatch使用","content":["sync -- 同步","async -- 异步","delay -- 延迟执行三秒","main -- 主线程","global -- 全局并发队列","group-多任务","workItem-多任务"]],["title":"网络请求","content":["GET -- 请求","POST -- 请求","下载图片"]],["title":"自定义组件","content":["toast","。。。"]])
         
         return tmpdatasource
     }()
@@ -36,62 +36,70 @@ class OtherViewController: UIViewController,UITableViewDataSource,UITableViewDel
         self.view.addSubview(self.tableView)
         
     }
- 
+    @objc override func orientationChanged(notification: Notification) {
+        super.orientationChanged(notification: notification)
+        let queue = DispatchQueue(label: "com.test.backtomain")
+        queue.async{
+            DispatchQueue.main.async {
+                self.tableView.frame = self.view.bounds
+            }
+        }        
+    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
     }
     
-    //MARK:- dispatch
-    
-    func dispatch_sync(){
-        let queue = DispatchQueue(label: "com.test.queuesync")
-        queue.sync {
-            for i in 0...10{
-                print("sync test --- ",i)
-            }
-            print("   ---同步执行结束  子线程---")
-        }
-    }
-    func dispatch_async(){
-        let queue = DispatchQueue(label: "com.test.queueasync")
-        queue.async {
-            for i in 0...10{
-                print("async test --- ",i)
-            }
-            print("   ---异步执行结束  子线程---")
-        }
-    }
-    func dispatch_delay(){
-        let queue = DispatchQueue(label: "com.test.queuedelay")
-        queue.asyncAfter(deadline: DispatchTime.now()+DispatchTimeInterval.seconds(3), execute: {
-            
-            print("   ---延迟执行执行结束  子线程---")
-        })
-    }
-    func dispatch_main(){
-        
-        let queue = DispatchQueue(label: "com.test.backtomain")
-        queue.async{
-            DispatchQueue.main.sync {
-                print("   ---回到主线程---")
-            }
-        }
-    }
-    func dispatch_global(){
-        let queue = DispatchQueue.global()
-        let workItem = DispatchWorkItem{
-            print("调用了workitem")
-        }
-        queue.async {
-            for i in 0...10{
-                print("async test --- ",i)
-            }
-            workItem.perform();
-            print("   ---global异步执行结束  子线程---")
-        }
-    }
-    //MARK:-request 
+//    //MARK:- dispatch
+//
+//    func dispatch_sync(){
+//        let queue = DispatchQueue(label: "com.test.queuesync")
+//        queue.sync {
+//            for i in 0...10{
+//                print("sync test --- ",i)
+//            }
+//            print("   ---同步执行结束  子线程---")
+//        }
+//    }
+//    func dispatch_async(){
+//        let queue = DispatchQueue(label: "com.test.queueasync")
+//        queue.async {
+//            for i in 0...10{
+//                print("async test --- ",i)
+//            }
+//            print("   ---异步执行结束  子线程---")
+//        }
+//    }
+//    func dispatch_delay(){
+//        let queue = DispatchQueue(label: "com.test.queuedelay")
+//        queue.asyncAfter(deadline: DispatchTime.now()+DispatchTimeInterval.seconds(3), execute: {
+//
+//            print("   ---延迟执行执行结束  子线程---")
+//        })
+//    }
+//    func dispatch_main(){
+//
+//        let queue = DispatchQueue(label: "com.test.backtomain")
+//        queue.async{
+//            DispatchQueue.main.sync {
+//                print("   ---回到主线程---")
+//            }
+//        }
+//    }
+//    func dispatch_global(){
+//        let queue = DispatchQueue.global()
+//        let workItem = DispatchWorkItem{
+//            print("调用了workitem")
+//        }
+//        queue.async {
+//            for i in 0...10{
+//                print("async test --- ",i)
+//            }
+//            workItem.perform();
+//            print("   ---global异步执行结束  子线程---")
+//        }
+//    }
+    //MARK:-request
     
     func getRequest(){
         let url = URL.init(string: "https://api.github.com/repos/alibaba/weex")
@@ -217,32 +225,73 @@ class OtherViewController: UIViewController,UITableViewDataSource,UITableViewDel
             switch indexPath.row {
             case 0:
                 print("\n---同步执行开始  main---")
-                self.dispatch_sync()
+
+                dispatch_sync(label: "com.test.queuesync") {
+                    for i in 0...10{
+                        print("sync test --- ",i)
+                    }
+                    print("   ---同步执行结束  子线程---")
+                }
                 print("---同步执行结束  main---")
 
                 break
             case 1:
                 print("\n---异步执行开始  main---")
-                self.dispatch_async()
+                dispatch_async(label: "com.test.queueasync") {
+                    for i in 0...10{
+                        print("async test --- ",i)
+                    }
+                    print("   ---异步执行结束  子线程---")
+                }
                 print("---异步执行结束  main---")
                 
                 break
             case 2:
                 print("\n---延迟执行开始  main---")
-                self.dispatch_delay()
+                dispatch_delay(label: "com.test.queuedelay") {
+                    print("   ---延迟执行执行结束  子线程---")
+
+                }
                 print("---延迟执行结束  main---")
                 
                 break
             case 3:
                 print("\n---获取主线程执行开始  main---")
-                self.dispatch_main()
+                dispatch_main {
+                    print("   ---回到主线程---")
+                }
                 print("---获取主线程执行结束  main---")
                 
                 break
             case 4:
                 print("\n---global 执行开始  main---")
-                self.dispatch_global()
+                dispatch_global{
+                    for i in 0...10{
+                        print("async test --- ",i)
+                    }
+                    print("   ---global异步执行结束  子线程---")
+                }
                 print("---global执行结束  main---")
+                
+                break
+            case 5:
+                print("\n---dispatch_group 执行开始  main---")
+                dispatch_group(label: "com.testgourp", {
+                    print("---dispatch_group执行任务1---")
+
+                }) {
+                    print("---dispatch_group执行任务1---")
+
+                }
+                print("---dispatch_group执行结束  main---")
+                break
+            case 6:
+                print("\n---dispatch_workItems 执行开始  main---")
+                dispatch_workItems(label: "com.testworkitems", {
+                    print("---dispatch_workItems执行任务1---")
+                    
+                })
+                print("---dispatch_workItems执行结束  main---")
                 
                 break
             default:
@@ -251,11 +300,11 @@ class OtherViewController: UIViewController,UITableViewDataSource,UITableViewDel
         }else if indexPath.section==1{
             switch indexPath.row {
             case 0:
-                self.getRequest()
+                getRequest()
                 
                 break
             case 1:
-                self.postRequest()
+                postRequest()
                 
                 break
             case 2:
